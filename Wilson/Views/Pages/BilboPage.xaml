@@ -1,0 +1,24 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wilson.Views.Pages"
+      xmlns:ViewModels="clr-namespace:Wilson.ViewModels" x:Class="Wilson.Views.Pages.BilboPage"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="BilboPage">
+
+    <Page.DataContext>
+        <ViewModels:BilboViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <TextBox Text="{Binding ScriptText, UpdateSourceTrigger=PropertyChanged}"  Margin="10,10,10,41" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True"/>
+        <DockPanel VerticalAlignment="Bottom" Margin="10,0,10,10">
+            <Button Command="{Binding BilboExecuteCommand, IsAsync=True}" Content="Execute" HorizontalAlignment="Left" Width="60"/>
+            <Label Content="Result" VerticalContentAlignment="Center"/>
+            <TextBox Text="{Binding ResultText, Mode=OneWay}" Height="23" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Center" IsReadOnly="True"/>
+        </DockPanel>
+    </Grid>
+</Page>
